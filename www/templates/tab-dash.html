@@ -1,0 +1,48 @@
+
+<ion-view view-title="英雄">
+  <ion-content class="padding"  ng-controller="DashCtrl">
+    <div class="button-bar" style="padding:3px"> 
+    <a class="button" ng-click="myFilter = {}; click(19)" ng-class="{'button-positive':var==19}">全部</a> 
+    <a class="button" ng-click="myFilter = {type: 1}; click(9)" ng-class="{'button-positive':var==9}">战士</a> 
+    <a class="button" ng-click="myFilter = {type: 2}; click(2)" ng-class="{'button-positive':var==2}">法师</a> 
+    <a class="button" ng-click="myFilter = {type: 3}; click(3)" ng-class="{'button-positive':var==3}">刺客</a> 
+    <a class="button" ng-click="myFilter = {type: 4}; click(4)" ng-class="{'button-positive':var==4}">坦克</a>
+    <a class="button" ng-click="myFilter = {type: 5}; click(5)" ng-class="{'button-positive':var==5}">射手</a> 
+    <a class="button" ng-click="myFilter = {type: 6}; click(6)" ng-class="{'button-positive':var==6}">辅助</a> </div>
+    
+    <!--
+  <div class="row" ng-repeat="item in artists track by $index" ng-if="$index % 5 == 0" style="padding:0px">{{$index}}
+   	<div class="col" ng-repeat="i in [$index, $index + 1, $index + 2, $index + 3,$index + 4]" 
+       ng-if="artists[i] != null" align="center"><img src="./img/100x100.jpg" style="height:100%; width:100%">{{artists[i].name}}</div>
+   </div>
+  --> 
+    
+    <!--    <div class="row" ng-repeat="item in artists" ng-if="$index % 5 === 0" >
+      <div class="col col-20" ng-if="$index < artists.length" >
+            <img ng-src="./img/100x100.jpg" width="100%" /> {{artists[$index].type}}
+        </div>
+        <div class="col col-20" ng-if="$index + 1 < artists.length" >
+            <img ng-src="./img/100x100.jpg" width="100%" />{{artists[$index + 1].type}}
+        </div>
+        <div class="col col-20" ng-if="$index + 2 < artists.length" >
+            <img ng-src="./img/100x100.jpg" width="100%" />{{artists[$index + 2].type}}
+        </div>
+        <div class="col col-20" ng-if="$index + 3 < artists.length" >
+            <img ng-src="./img/100x100.jpg" width="100%" />{{artists[$index + 3].type}}
+        </div>
+        <div class="col col-20" ng-if="$index + 4 < artists.length" >
+            <img ng-src="./img/100x100.jpg" width="100%" />{{artists[$index + 4].type}}
+        </div>
+    </div>
+-->
+    
+    <div class="row" style="display: -webkit-flex; -webkit-flex-wrap: wrap; display: flex; flex-wrap: wrap;">
+      <div class="col col-20" ng-repeat="hero in heros | filter:myFilter" > 
+      <a href="#/tab/heros/{{hero.id}}">
+     <img ng-src="./img/Hero/{{hero.shortname}}.png" width="100%" />
+      <!--<img ng-src="./img/100x100.jpg" width="100%" />-->
+      </a> {{hero.name}} 
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
